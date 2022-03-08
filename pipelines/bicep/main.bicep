@@ -8,3 +8,13 @@ module vnetModule 'vnet/vnet.bicep' = {
     location: location
   }
 }
+
+module keyVault 'kv/kv.bicep' = {
+  name: 'keyVault'
+  params: {
+    tenantId: tenantId
+    accessPolicies: keyVaultAccessPolicies
+    baseAppName: 'dcd-test-3'
+    location: location
+  }
+}
