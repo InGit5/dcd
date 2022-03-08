@@ -67,7 +67,6 @@ module keyVault 'kv/kv.bicep' = {
   params: {
     tenantId: tenantId
     accessPolicies: keyVaultAccessPolicies
-    baseAppName: 'dcd-test-2'
-    appConfigConnectionString: listKeys(resourceId('Microsoft.AppConfiguration/configurationStores', appConfigDeploy.outputs.name), appConfigDeploy.outputs.apiVersion).value[0].connectionString
+    baseAppName: 'dcd-test-3'
   }
 }
