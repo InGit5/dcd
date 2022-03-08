@@ -1,20 +1,19 @@
 //var tenantId = subscription().tenantId
 var location = 'norwayeast'
-
+var baseAppName = 'dcdtest'
 module vnetModule 'vnet/vnet.bicep' = {
   name: 'vnet'
   params:{
-    baseAppName: 'dcd'
+    baseAppName: baseAppName
     location: location
   }
 }
 
-module keyVault 'kv/kv.bicep' = {
-  name: 'keyVault'
+
+module containerRegistry 'acr/acr.bicep' = {
+  name: 'acr'
   params: {
-    tenantId: tenantId
-    accessPolicies: keyVaultAccessPolicies
-    baseAppName: 'dcd-test-3'
+    baseAppName: baseAppName
     location: location
   }
 }
