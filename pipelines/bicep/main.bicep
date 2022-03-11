@@ -1,7 +1,8 @@
 //var tenantId = subscription().tenantId
-var location = 'norwayeast'
+var location = resourceGroup().location
 var baseAppName = 'dcdtest'
 
+var sqlAdminPw = 'QX8dVpaJpwaz6hPK'
 
 module vnetModule 'vnet/vnet.bicep' = {
   name: 'vnet'
@@ -31,7 +32,7 @@ module WebApps 'webapp/main.bicep' = {
   name: 'webApps'
   params: {
     baseAppName: baseAppName
-    
+    appInsightInstrumatationKey: appInsights.outputs.appInsightKey
   }
 }
 
@@ -40,6 +41,7 @@ module appInsights 'appi/appi.bicep' = {
   params: {
     baseAppName: baseAppName
     location: location
+    
   }
 }
 
@@ -48,5 +50,6 @@ module sql 'sql/sql.bicep' = {
   params: {
     baseAppName: baseAppName
     location: location
+    sqlAdminPw: sqlAdminPw
   }
 }
