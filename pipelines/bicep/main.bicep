@@ -1,6 +1,6 @@
 //var tenantId = subscription().tenantId
 var location = resourceGroup().location
-var baseAppName = 'dcdtest'
+var baseAppName = 'dcdapp'
 
 var sqlAdminPw = 'QX8dVpaJpwaz6hPK'
 
@@ -41,7 +41,7 @@ module appInsights 'appi/appi.bicep' = {
   params: {
     baseAppName: baseAppName
     location: location
-    
+
   }
 }
 
